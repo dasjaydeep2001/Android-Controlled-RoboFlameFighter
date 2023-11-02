@@ -3,7 +3,9 @@ RoboFlameFighter is a cutting-edge fire extinguishing robot that represents a fu
 
 ## Hardware Specifications
 •	8051 Family Microcontroller
+
 •	Bluetooth Decoder
+
 •	Motor Driver IC
 •	DC Motors
 •	Batteries
