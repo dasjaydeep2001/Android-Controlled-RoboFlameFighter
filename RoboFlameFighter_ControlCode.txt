@@ -1,0 +1,195 @@
+#include <AT89X52.h>  
+
+sbit IN1=P3^6;
+sbit IN2=P3^5;
+sbit IN3=P2^5;
+sbit IN4=P2^4;
+sbit pump=P0^7;
+sbit motr1=P1^2;
+sbit motr2=P1^3; 
+
+
+unsigned char ch; 
+unsigned char chr;
+
+void Delay(int a);
+void PUMP();
+
+void init_Serial()
+{
+TMOD = 0x20;
+SCON = 0x50;
+TH1  = 0xFD;
+TR1  = 1;
+} 
+
+unsigned char serial_read()
+{
+ while(!RI);
+ RI = 0;
+ return SBUF;
+}
+
+void TX_Char(unsigned char c)
+{
+SBUF=c;
+while(TI==0);
+TI=0;
+}
+
+void Rx_Char()
+{
+while(RI==0); 
+ch=SBUF;
+Delay(200);	
+RI=0; 
+}
+
+void frwd()
+{
+IN1=1;
+IN2=0;
+IN3=1;
+IN4=0;
+}
+
+void Bkwd()
+{
+IN3=0;
+IN4=1;
+IN1=0;
+IN2=1;
+}
+
+void Right()
+{
+IN3=0;
+IN4=0;
+IN1=1;
+IN2=0;
+}
+
+void Left()
+{
+IN3=1;
+IN4=0;
+IN1=0;
+IN2=0;
+}
+
+void Motrup()
+{
+motr1=0; 
+motr2=1;
+}
+
+void Motrdown()
+{
+motr1=1; 
+motr2=0;
+}
+
+void stop()
+{
+IN1=0;
+IN2=0;
+IN3=0;
+IN4=0; 
+}
+
+void PUMP()
+{
+pump=~pump;
+}
+
+char getCharacter()
+{
+             /* variable to hold the new character */
+ 
+      /*
+        * Wait until the serial port signals a new character has arrived.
+        * It does so by setting the Received interrupt flag, RI, which
+        * this routine loops on until it is set to 1.  This is known
+        * as polling.
+    */
+ 
+      while (RI != 1) {;}
+ 
+      /* now read the value in the serial buffer into the local variable */
+ 
+      chr = SBUF;
+ 
+      /*
+        * Once the character is read, the serial port must be told that it is
+        * free to receive a new character.  This is done by clearing the
+        * Received Interrupt flag.
+        */
+ 
+      RI = 0;
+ 
+      /* the character is then returned to the calling function. */
+ 
+      return(chr);
+}
+
+
+void Delay(int a)
+{
+    int j;
+    int i;
+    for(i=0;i<a;i++)
+    {
+        for(j=0;j<100;j++)
+        {
+        }
+    }
+}
+
+
+void main() 
+{
+IN1=0;
+IN2=0;	
+init_Serial(); 
+while(1)
+{
+Rx_Char();
+switch(ch)
+{
+case 'U':
+	frwd();   //Turn the Robot Forward
+	break;
+case 'D':	
+	Bkwd();   //Turn the Robot Backward	
+	break;
+case 'R':
+	Right(); //Turn the robot right	
+	break;
+case 'L': 
+	Left();	//Turn the robot Left.
+	break;
+case 'C':
+	Stop();
+	break;
+case 'a':
+	Motrup();
+	Delay(100);
+        motr1=0; 
+	motr2=0;
+	break;
+case 'c':
+	Motrdown();
+	Delay(100);
+	motr1=0; 
+	motr2=0;
+	break;
+case 'h':
+	PUMP();
+	break;
+
+ 
+default: 
+	break;
+}
+}
+}
