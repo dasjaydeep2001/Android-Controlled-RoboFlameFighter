@@ -55,8 +55,16 @@ There are many different kinds of capacitors available from very small capacitor
 In its basic form, a capacitor consists of two or more parallel conductive (metal) plates which are not connected or touching each other, but are electrically separated either by air or by some form of a good insulating material such as waxed paper, mica, ceramic, plastic or some form of a liquid gel as used in electrolytic capacitors. The insulating layer between a capacitors plates is commonly called the Dielectric.
 
 ## Resistors
-The resistor is a passive electrical component to create resistance in the flow of electric current. In almost all electrical networks and electronic circuits they can be found. The resistance is measured in ohms. An ohm is the resistance that occurs when a current of one ampere passes through a resistor with a one volt drop across its terminals. The current is proportional to the voltage across the terminal ends. This ratio is  represented by Ohm’s law:
+The resistor is a passive electrical component to create resistance in the flow of electric current. In almost all electrical networks and electronic circuits they can be found. The resistance is measured in ohms. An ohm is the resistance that occurs when a current of one ampere passes through a resistor with a one volt drop across its terminals. The current is proportional to the voltage across the terminal ends. 
 
+## Technological Advancements
+Machine Learning for Fire Detection: Implement machine learning algorithms and image recognition to enhance the system's ability to detect fires with higher accuracy. This can involve the use of cameras and sensors to identify smoke patterns and flame characteristics.
+
+Multi-Sensor Integration: Integrate a broader range of sensors, such as gas detectors and thermal cameras, to provide a more comprehensive view of fire conditions and potential hazards.
+
+Machine-to-Machine Communication: Enable communication between multiple fire-fighting robots for coordinated efforts in extinguishing larger fires or handling emergencies in industrial settings.
+
+Autonomous Navigation: Develop autonomous navigation capabilities, allowing the robot to navigate through complex environments and reach fire locations without human intervention. This could involve obstacle avoidance and path planning algorithms.
 
 
 
