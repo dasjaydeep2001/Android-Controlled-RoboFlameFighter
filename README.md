@@ -57,6 +57,8 @@ In its basic form, a capacitor consists of two or more parallel conductive (meta
 ## Resistors
 The resistor is a passive electrical component to create resistance in the flow of electric current. In almost all electrical networks and electronic circuits they can be found. The resistance is measured in ohms. An ohm is the resistance that occurs when a current of one ampere passes through a resistor with a one volt drop across its terminals. The current is proportional to the voltage across the terminal ends. 
 
+
+
 ## Technological Advancements
 Machine Learning for Fire Detection: Implement machine learning algorithms and image recognition to enhance the system's ability to detect fires with higher accuracy. This can involve the use of cameras and sensors to identify smoke patterns and flame characteristics.
 
